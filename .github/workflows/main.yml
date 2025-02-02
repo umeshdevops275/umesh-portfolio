@@ -16,8 +16,9 @@ on:
         -name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id:
-          aws-secret-access-key:
+          aws-access-key-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets. AWS_SECRET_ACCESS_KEY}}
           aws-region: us-east-1
 
         -name: Deploy site to S3 Bucket
+          run: aws s3 sync . s3://demo-buketumesh --delete
